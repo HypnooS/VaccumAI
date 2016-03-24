@@ -27,6 +27,9 @@ public class VaccumCleanerAI {
         vaccum.activeAI();
         vaccum.activeAI();
         vaccum.activeAI();
+        vaccum.activeAI();
+        vaccum.activeAI();
+        vaccum.activeAI();
         
     }
     

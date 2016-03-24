@@ -35,21 +35,22 @@ public class VaccumAI {
     }
     
     public void walk(){
-        if(column >= columnLimit){
-            
-            column = 0;
-            if(line >= lineLimit){
-                
-                line = 0;
+        if(column == columnLimit){
+            this.column = 0;
+            if(line == lineLimit){
+                this.line = 0;
             }
             else
             {
                 line++;
             }
-        }
-        if(column < columnLimit){
-            System.out.println("stepLeft");
-            stepLeft();
+        }else{
+            if(column < columnLimit)
+            {
+                System.out.println("stepLeft");
+                stepLeft();
+            }
+        
         }
         
     }
