@@ -27,9 +27,9 @@ public class VaccumAI {
     
     
 
-    public VaccumAI(int lineLimt, int columnLimit, Environment environment){
-        this.column = 0;
-        this.line = 0;
+    public VaccumAI(int lineStart, int columnStart,int lineLimt, int columnLimit, Environment environment){
+        this.column = lineStart;
+        this.line = columnStart;
         this.columnLimit = columnLimit;
         this.lineLimit = lineLimt;
         this.environment = environment;
