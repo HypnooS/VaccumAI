@@ -49,6 +49,7 @@ public class VaccumAI {
             this.column = 0;
             if(line == lineLimit){
                 this.line = 0;
+                System.out.println("step To Begin");
             }
             else
             {
