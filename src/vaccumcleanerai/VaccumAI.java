@@ -20,6 +20,13 @@ public class VaccumAI {
     public int columnLimit;
     public int lineLimit;
 
+    @Override
+    public String toString() {
+        return "VaccumAI{" + "column=" + column + ", line=" + line + '}';
+    }
+    
+    
+
     public VaccumAI(int lineLimt, int columnLimit, Environment environment){
         this.column = 0;
         this.line = 0;
@@ -35,6 +42,9 @@ public class VaccumAI {
     }
     
     public void walk(){
+        
+        memory.add(toString());
+        
         if(column == columnLimit){
             this.column = 0;
             if(line == lineLimit){
