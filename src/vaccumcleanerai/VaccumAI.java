@@ -29,14 +29,17 @@ public class VaccumAI {
         this.memory = new ArrayList<>();
     }
     public void activeAI(){
+        System.out.println("Coo "+ line + " " + column);
         this.space = environment.space[line][column];
         verify(space);
     }
     
     public void walk(){
-        if(column++ > columnLimit){
+        if(column >= columnLimit){
+            
             column = 0;
-            if(line++ > lineLimit){
+            if(line >= lineLimit){
+                
                 line = 0;
             }
             else
@@ -44,7 +47,8 @@ public class VaccumAI {
                 line++;
             }
         }
-        if(column++ < columnLimit){
+        if(column < columnLimit){
+            System.out.println("stepLeft");
             stepLeft();
         }
         
@@ -70,9 +74,10 @@ public class VaccumAI {
             walk();
         }
         if(!space.isDirt() && space.isObjectInSpace()){
-            System.out.println("Walking... becarful!");
+            System.out.println("Walking... be carful!");
             walk();
         }
+        
     }
     public void clean(Space space){
         System.out.println("Working on Dirt!");

@@ -23,7 +23,10 @@ public class VaccumCleanerAI {
         
         VaccumAI vaccum = new VaccumAI(1, 1, environment);
         vaccum.activeAI();
-        
+        vaccum.activeAI();
+        vaccum.activeAI();
+        vaccum.activeAI();
+        vaccum.activeAI();
         
     }
     
