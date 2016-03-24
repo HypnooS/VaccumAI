@@ -22,7 +22,7 @@ public class VaccumAI {
 
     @Override
     public String toString() {
-        return "VaccumAI{" + "column=" + column + ", line=" + line + '}';
+        return "column=" + column + ", line=" + line;
     }
     
     
@@ -39,11 +39,27 @@ public class VaccumAI {
         System.out.println("Coo "+ line + " " + column);
         this.space = environment.space[line][column];
         verify(space);
+        int n = memory.size(); 
+        for (int i=0; i<n; i++) { 
+            System.out.printf("Posição %d- %s\n", i, memory.get(i));
+        }
+    }
+    
+    public void pular_repetido(){
+        for(int x=0;x<memory.size();x++){
+            
+            if(memory.get(x)=="column=" + column + ", line=" + line){
+                column++;
+                pular_repetido();
+            }
+            
+        }
     }
     
     public void walk(){
         
         memory.add(toString());
+        pular_repetido();
         
         if(column == columnLimit){
             this.column = 0;
