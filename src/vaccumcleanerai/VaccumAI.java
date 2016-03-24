@@ -49,6 +49,7 @@ public class VaccumAI {
         for(int x=0;x<memory.size();x++){
             
             if(memory.get(x)=="column=" + column + ", line=" + line){
+                System.out.println("ja passei por aqui");
                 column++;
                 pular_repetido();
             }
