@@ -38,7 +38,7 @@ public class VaccumAI {
     public void activeAI(){
         //System.out.println("Coo "+ line + " " + column);
         this.space = environment.space[line][column];
-        memory.add(toString());
+        
         verify(space);
         int n = memory.size(); 
         for (int i=0; i<n; i++) { 
@@ -47,30 +47,21 @@ public class VaccumAI {
     }
     
     public void pular_repetido(int column){
- 
         for(int x=0;x<memory.size();x++){
             //System.out.println("X value:" + x);
             //System.out.println(memory.get(x));
             if(memory.get(x).equals("column=" + column + ", line=" + line) ){
                 System.out.println("ja passei por aqui");
-                if(column == columnLimit){
-            this.column = 0;
-            if(line == lineLimit){
-                this.line = 0;
+                memory.remove(memory.size()-1);
+                }
+
             }
-            else
-            {
-                line++;
-            }
+        
         }
-                pular_repetido(this.column++);
-                
-            }
-            
-        }
-    }
+    
     
     public void walk(){
+        memory.add(toString());
         pular_repetido(column+1);
         
         
