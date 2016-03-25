@@ -8,6 +8,7 @@ package vaccumcleanerai;
 /**
  *
  * @author zwar
+ * @author Caio Serrano
  */
 public class VaccumCleanerAI {
 
