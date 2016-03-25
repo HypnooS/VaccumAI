@@ -41,10 +41,7 @@ public class VaccumAI {
         this.space = environment.space[line][column];
         
         verify(space);
-        int n = memory.size(); 
-        for (int i=0; i<n; i++) { 
-            System.out.printf("Posição %d- %s\n", i, memory.get(i));
-        }
+
     }
     
     public void pular_repetido(int column,int line){   
@@ -57,6 +54,7 @@ public class VaccumAI {
             if(memory.get(x).equals("column=" + column + ", line=" + line) ){
                 System.out.println("ja passei por aqui");
                 memory.remove(memory.size()-1);
+                finalizar();
                 }
 
             }
@@ -70,6 +68,11 @@ public class VaccumAI {
         if(cont>((columnLimit+1)*(lineLimit+1)))
         {
             pular_repetido(column,line);
+        }
+        else{
+                            int n = memory.size(); 
+        for (int i=0; i<n; i++) { 
+            System.out.printf("Posição %d- %s\n", i, memory.get(i));
         }
         if(column == columnLimit){
             this.column = 0;
@@ -88,6 +91,8 @@ public class VaccumAI {
                 stepLeft();
             }
         
+        }
+
         }
         
     }
@@ -123,4 +128,8 @@ public class VaccumAI {
         space.setDirt(false);
     }
     
+    public void finalizar(){
+        System.out.println("acabou a limpeza");
+        
+    }
 }
