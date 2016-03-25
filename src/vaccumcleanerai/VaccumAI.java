@@ -67,9 +67,10 @@ public class VaccumAI {
     public void walk(){
         memory.add(toString());
         cont++;
-        if(cont>4){
-        pular_repetido(column,line);
-    }
+        if(cont>(columnLimit*lineLimit))
+        {
+            pular_repetido(column,line);
+        }
         if(column == columnLimit){
             this.column = 0;
             if(line == lineLimit){
