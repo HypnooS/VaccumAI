@@ -19,6 +19,7 @@ public class VaccumAI {
     public int line;
     public int columnLimit;
     public int lineLimit;
+    public int cont;
 
     @Override
     public String toString() {
@@ -46,17 +47,13 @@ public class VaccumAI {
         }
     }
     
-    public void pular_repetido(int column, int line){
+    public void pular_repetido(int column,int line){   
+           
+       
         for(int x=0;x<memory.size();x++){
             //System.out.println("X value:" + x);
             //System.out.println(memory.get(x));
-            if(column == columnLimit){
-            column = 0;
-            if(line == lineLimit){
-                line = 0;
-                
-            }
-            }
+
             if(memory.get(x).equals("column=" + column + ", line=" + line) ){
                 System.out.println("ja passei por aqui");
                 memory.remove(memory.size()-1);
@@ -69,9 +66,10 @@ public class VaccumAI {
     
     public void walk(){
         memory.add(toString());
-        pular_repetido(column+1, line);
-        
-        
+        cont++;
+        if(cont>4){
+        pular_repetido(column,line);
+    }
         if(column == columnLimit){
             this.column = 0;
             if(line == lineLimit){
@@ -116,6 +114,7 @@ public class VaccumAI {
             System.out.println("Walking... be carful!");
             walk();
         }
+        //if(Environment.space[line][column+1])
         
     }
     public void clean(Space space){
