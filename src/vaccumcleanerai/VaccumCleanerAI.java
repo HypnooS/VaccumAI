@@ -5,47 +5,24 @@
  */
 package vaccumcleanerai;
 
+import java.util.Random;
+
 /**
  *
  * @author zwar
  * @author Caio Serrano
  */
 public class VaccumCleanerAI {
-
+    Environment environment; 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Environment environment = new Environment(3, 3);
-        environment.space[0][0] = new Space(true, false);
-        environment.space[0][1] = new Space(true, false);
-        environment.space[0][2] = new Space(true, false);
-        environment.space[1][0] = new Space(false, false);
-        environment.space[1][1] = new Space(false, true);
-        environment.space[1][2] = new Space(false, true);
-        environment.space[2][0] = new Space(false, false);
-        environment.space[2][1] = new Space(false, true);
-        environment.space[2][2] = new Space(false, true);
-       
-        
-        VaccumAI vaccum = new VaccumAI(1,1,2,2,environment);
+        Environment environment = new Environment(3, 3);     //<-- cuidado com esse metrica, ela é de 1 a n, e não de 0 a n.  
+        VaccumAI vaccum = new VaccumAI(0,1,2,2,environment); //<-- Aqui já é de 0 a n.
         vaccum.activeAI();
-        vaccum.activeAI();
-        vaccum.activeAI();
-        vaccum.activeAI();
-        vaccum.activeAI();
-        vaccum.activeAI();
-        vaccum.activeAI();
-        vaccum.activeAI();
-        vaccum.activeAI();
-        vaccum.activeAI();
-        vaccum.activeAI();
-        vaccum.activeAI();
-        vaccum.activeAI();
-        vaccum.activeAI();
-        vaccum.activeAI();
-        
+               
 
     }
-    
+        
 }

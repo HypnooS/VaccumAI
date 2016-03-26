@@ -25,8 +25,6 @@ public class VaccumAI {
     public String toString() {
         return "column=" + column + ", line=" + line;
     }
-    
-    
 
     public VaccumAI(int lineStart, int columnStart,int lineLimt, int columnLimit, Environment environment){
         this.column = lineStart;
@@ -38,10 +36,11 @@ public class VaccumAI {
     }
     public void activeAI(){
         //System.out.println("Coo "+ line + " " + column);
-        this.space = environment.space[line][column];
-        
-        verify(space);
-
+        for(int repeat=0; repeat != ((columnLimit+1)*(lineLimit+1)); repeat++){
+             this.space = environment.space[this.line][this.column];
+             verify(space);
+        } 
+        finalizar();
     }
     
     public void pular_repetido(int column,int line){   
@@ -54,7 +53,7 @@ public class VaccumAI {
             if(memory.get(x).equals("column=" + column + ", line=" + line) ){
                 System.out.println("ja passei por aqui");
                 memory.remove(memory.size()-1);
-                finalizar();
+                //finalizar();
                 }
 
             }
@@ -69,14 +68,16 @@ public class VaccumAI {
         {
             pular_repetido(column,line);
         }
-        else{
-                            int n = memory.size(); 
-        for (int i=0; i<n; i++) { 
+        else
+        {
+            int n = memory.size(); 
+            for (int i=0; i<n; i++) { 
             System.out.printf("Posição %d- %s\n", i, memory.get(i));
         }
         if(column == columnLimit){
             this.column = 0;
-            if(line == lineLimit){
+            if(line == lineLimit)
+            {
                 this.line = 0;
                 System.out.println("step To Begin");
             }
@@ -84,7 +85,8 @@ public class VaccumAI {
             {
                 line++;
             }
-        }else{
+        }else
+        {
             if(column < columnLimit)
             {
                 System.out.println("stepLeft");
@@ -93,7 +95,7 @@ public class VaccumAI {
         
         }
 
-        }
+    }
         
     }
     public void stepLeft(){
@@ -120,8 +122,7 @@ public class VaccumAI {
             System.out.println("Walking... be carful!");
             walk();
         }
-        //if(Environment.space[line][column+1])
-        
+                
     }
     public void clean(Space space){
         System.out.println("Working on Dirt!");
@@ -129,7 +130,7 @@ public class VaccumAI {
     }
     
     public void finalizar(){
-        System.out.println("acabou a limpeza");
+        System.out.println("Acabou a limpeza");
         
     }
 }
